@@ -2,16 +2,16 @@
 CREATE TABLE Care_Site (
 	care_site_id double precision  PRIMARY KEY,
  	care_site_name varchar (255),
- 	place_of_service_concept_id double precision ,
- 	location_id double precision ,
+ 	place_of_service_concept_id double precision,
+ 	location_id double precision,
  	care_site_source_value varchar (255),
 	FOREIGN KEY (location_id) REFERENCES Location (location_id)
 );
 
 CREATE TABLE Condition_Era (
 	condition_era_id double precision  PRIMARY KEY,
- 	person_id double precision ,
- 	condition_concept_id double precision ,
+ 	person_id double precision,
+ 	condition_concept_id double precision,
  	condition_era_start_date date (20);,
  	condition_era_end_date date (20),
  	condition_occurrence_count float (8),
@@ -20,8 +20,8 @@ CREATE TABLE Condition_Era (
 
 CREATE TABLE Condition_Occurrence (
 	condition_occurrence_id double precision  PRIMARY KEY,
- 	person_id double precision ,
- 	condition_concept_id double precision ,
+ 	person_id double precision,
+ 	condition_concept_id double precision,
  	condition_start_date date (20);,
  	condition_start_datetime datetime (16),
  	condition_end_date date (20),
@@ -51,8 +51,8 @@ CREATE TABLE Death (
 
 CREATE TABLE Device_Exposure (
 	device_exposure_id double precision  PRIMARY KEY,
- 	person_id double precision ,
- 	device_concept_id double precision ,
+ 	person_id double precision,
+ 	device_concept_id double precision,
  	device_exposure_start_date date (20);,
  	device_exposure_start_datetime datetime (16),
  	device_exposure_end_date date (20),
@@ -71,7 +71,7 @@ CREATE TABLE Device_Exposure (
 
 CREATE TABLE Drug_Era (
 	drug_era_id double precision  PRIMARY KEY,
- 	person_id double precision ,
+ 	person_id double precision,
  	drug_concept_id varchar (255),
  	drug_era_start_date date (20);,
  	drug_era_end_date date (20),
@@ -82,7 +82,7 @@ CREATE TABLE Drug_Era (
 
 CREATE TABLE Drug_Exposure (
 	drug_exposure_id double precision  PRIMARY KEY,
- 	person_id double precision ,
+ 	person_id double precision,
  	drug_concept_id varchar (255),
  	drug_exposure_start_date date (20);,
  	drug_exposure_start_datetime datetime (16),
@@ -110,32 +110,32 @@ CREATE TABLE Drug_Exposure (
 
 CREATE TABLE Location (
 	location_id double precision  PRIMARY KEY,
-	address_1 double precision ,
- 	address_2 double precision ,
- 	city double precision ,
- 	state double precision ,
+	address_1 double precision,
+ 	address_2 double precision,
+ 	city double precision,
+ 	state double precision,
  	zip varchar (255),
- 	county double precision ,
+ 	county double precision,
  	location_source_value double precision 
 );
 
 CREATE TABLE Measurement (
 	measurement_id double precision  PRIMARY KEY,
- 	person_id double precision ,
+ 	person_id double precision,
  	measurement_concept_id varchar (255),
 	measurement_date varchar (20),
  	measurement_datetime timestamp (16),
  	measurement_time varchar (32),
- 	measurement_type_concept_id double precision ,
- 	operator_concept_id double precision ,
- 	value_as_number double precision ,
+ 	measurement_type_concept_id double precision,
+ 	operator_concept_id double precision,
+ 	value_as_number double precision,
  	value_as_concept_id varchar (255),
- 	unit_concept_id double precision ,
- 	range_low double precision ,
- 	range_high double precision ,
- 	provider_id double precision ,
- 	visit_occurrence_id double precision ,
- 	visit_detail_id double precision ,
+ 	unit_concept_id double precision,
+ 	range_low double precision,
+ 	range_high double precision,
+ 	provider_id double precision,
+ 	visit_occurrence_id double precision,
+ 	visit_detail_id double precision,
  	measurement_source_value varchar (255),
  	measurement_source_concept_id varchar (255),
  	unit_source_value varchar (255),
@@ -146,7 +146,7 @@ CREATE TABLE Measurement (
 
 CREATE TABLE Observation_Period (
 	obseration_period_id double precision  PRIMARY KEY,
- 	person_id double precision ,
+ 	person_id double precision,
  	observation_period_start_date date (20);,
  	observation_period_end_date date (20),
  	period_type_concept_id float (8),
@@ -155,23 +155,23 @@ CREATE TABLE Observation_Period (
 
 CREATE TABLE Person (
 	person_id double precision PRIMARY KEY,
- 	gender_concept_id double precision ,
- 	year_of_birth double precision ,
- 	month_of_birth double precision ,
- 	day_of_birth double precision ,
+ 	gender_concept_id double precision,
+ 	year_of_birth double precision,
+ 	month_of_birth double precision,
+ 	day_of_birth double precision,
  	birth_datetime timestamp (16),
- 	race_concept_id double precision ,
- 	ethnicity_concept_id double precision ,
- 	location_id double precision ,
- 	provider_id double precision ,
- 	care_site_id double precision ,
- 	person_source_value double precision ,
+ 	race_concept_id double precision,
+ 	ethnicity_concept_id double precision,
+ 	location_id double precision,
+ 	provider_id double precision,
+ 	care_site_id double precision,
+ 	person_source_value double precision,
  	gender_source_value varchar (255),
- 	gender_source_concept_id double precision ,
- 	race_source_value double precision ,
- 	race_source_concept_id double precision ,
- 	ethnicity_source_value double precision ,
- 	ethnicity_source_concept_id double precision ,
+ 	gender_source_concept_id double precision,
+ 	race_source_value double precision,
+ 	race_source_concept_id double precision,
+ 	ethnicity_source_value double precision,
+ 	ethnicity_source_concept_id double precision,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (location_id) REFERENCES Location (location_id),
 	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
@@ -179,7 +179,7 @@ CREATE TABLE Person (
 
 CREATE TABLE Procedure_Occurrence (
 	procedure_occurrence_id double precision PRIMARY KEY,
- 	person_id double precision ,
+ 	person_id double precision,
  	procedure_concept_id varchar (255),
  	procedure_date date (20);,
  	procedure_datetime datetime (16),
@@ -198,8 +198,8 @@ CREATE TABLE Procedure_Occurrence (
 
 CREATE TABLE Visit_Occurrence (
 	visit_occurrence_id double precision  PRIMARY KEY,
- 	person_id double precision ,
- 	visit_concept_id double precision ,
+ 	person_id double precision,
+ 	visit_concept_id double precision,
  	visit_start_date date (20);,
  	visit_start_datetime datetime (16),
  	visit_end_date date (20),

@@ -8,7 +8,7 @@ CREATE TABLE Location (
  	zip varchar (255),
  	county double precision,
  	location_source_value double precision 
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Care_Site (
 	care_site_id double precision  PRIMARY KEY,
@@ -17,7 +17,7 @@ CREATE TABLE Care_Site (
  	location_id double precision,
  	care_site_source_value varchar (255),
 	FOREIGN KEY (location_id) REFERENCES Location (location_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Condition_Era (
 	condition_era_id double precision  PRIMARY KEY,
@@ -27,7 +27,7 @@ CREATE TABLE Condition_Era (
  	condition_era_end_date date,
  	condition_occurrence_count float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Condition_Occurrence (
 	condition_occurrence_id double precision  PRIMARY KEY,
@@ -48,7 +48,7 @@ CREATE TABLE Condition_Occurrence (
  	condition_status_source_value float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Death (
 	person_id double precision  PRIMARY KEY,
@@ -58,7 +58,7 @@ CREATE TABLE Death (
  	cause_concept_id float (8),
  	cause_source_value float (8),
  	cause_source_concept_id float (8)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Device_Exposure (
 	device_exposure_id double precision  PRIMARY KEY,
@@ -78,7 +78,7 @@ CREATE TABLE Device_Exposure (
  	device_source_concept_id float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Drug_Era (
 	drug_era_id double precision  PRIMARY KEY,
@@ -89,7 +89,7 @@ CREATE TABLE Drug_Era (
  	drug_exposure_count float (8),
  	gap_days float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Drug_Exposure (
 	drug_exposure_id double precision  PRIMARY KEY,
@@ -117,7 +117,7 @@ CREATE TABLE Drug_Exposure (
  	dose_unit_source_value float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Measurement (
 	measurement_id double precision  PRIMARY KEY,
@@ -142,7 +142,7 @@ CREATE TABLE Measurement (
  	value_source_value varchar (255),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Observation_Period (
 	obseration_period_id double precision  PRIMARY KEY,
@@ -151,7 +151,7 @@ CREATE TABLE Observation_Period (
  	observation_period_end_date date,
  	period_type_concept_id float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Person (
 	person_id double precision PRIMARY KEY,
@@ -175,7 +175,7 @@ CREATE TABLE Person (
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (location_id) REFERENCES Location (location_id),
 	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Procedure_Occurrence (
 	procedure_occurrence_id double precision PRIMARY KEY,
@@ -194,7 +194,7 @@ CREATE TABLE Procedure_Occurrence (
  	modifier_source_value float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
-);
+) FROM STDIN WITH CSV;
 
 CREATE TABLE Visit_Occurrence (
 	visit_occurrence_id double precision  PRIMARY KEY,
@@ -215,5 +215,5 @@ CREATE TABLE Visit_Occurrence (
  	discharge_to_source_value float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
-);
+) FROM STDIN WITH CSV;
 

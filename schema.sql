@@ -1,4 +1,15 @@
 
+CREATE TABLE Location (
+	location_id double precision  PRIMARY KEY,
+	address_1 double precision,
+ 	address_2 double precision,
+ 	city double precision,
+ 	state double precision,
+ 	zip varchar (255),
+ 	county double precision,
+ 	location_source_value double precision 
+);
+
 CREATE TABLE Care_Site (
 	care_site_id double precision  PRIMARY KEY,
  	care_site_name varchar (255),
@@ -106,17 +117,6 @@ CREATE TABLE Drug_Exposure (
  	dose_unit_source_value float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
-);
-
-CREATE TABLE Location (
-	location_id double precision  PRIMARY KEY,
-	address_1 double precision,
- 	address_2 double precision,
- 	city double precision,
- 	state double precision,
- 	zip varchar (255),
- 	county double precision,
- 	location_source_value double precision 
 );
 
 CREATE TABLE Measurement (

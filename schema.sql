@@ -70,6 +70,7 @@ CREATE TABLE Visit_Occurrence (
  	admitting_source_value float (8),
  	discharge_to_concept_id float (8),
  	discharge_to_source_value float (8),
+ 	preceding_visit_occurrence_id float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
 );

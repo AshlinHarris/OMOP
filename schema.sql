@@ -170,7 +170,7 @@ CREATE TABLE Person (
  	gender_source_concept_id double precision,
  	race_source_value double precision,
  	race_source_concept_id double precision,
- 	ethnicity_source_value double precision,
+ 	/* ethnicity_source_value double precision, */
  	ethnicity_source_concept_id double precision,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (location_id) REFERENCES Location (location_id),

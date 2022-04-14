@@ -1,6 +1,6 @@
 
 CREATE TABLE Location (
-	location_id double precision  PRIMARY KEY,
+	location_id double precision PRIMARY KEY,
 	address_1 double precision,
  	address_2 double precision,
  	city double precision,
@@ -11,7 +11,7 @@ CREATE TABLE Location (
 );
 
 CREATE TABLE Care_Site (
-	care_site_id double precision  PRIMARY KEY,
+	care_site_id double precision PRIMARY KEY,
  	care_site_name varchar (255),
  	place_of_service_concept_id double precision,
  	location_id double precision,
@@ -20,7 +20,7 @@ CREATE TABLE Care_Site (
 );
 
 CREATE TABLE Condition_Era (
-	condition_era_id double precision  PRIMARY KEY,
+	condition_era_id double precision PRIMARY KEY,
  	person_id double precision,
  	condition_concept_id double precision,
  	condition_era_start_date date,
@@ -30,7 +30,7 @@ CREATE TABLE Condition_Era (
 );
 
 CREATE TABLE Condition_Occurrence (
-	condition_occurrence_id double precision  PRIMARY KEY,
+	condition_occurrence_id double precision PRIMARY KEY,
  	person_id double precision,
  	condition_concept_id double precision,
  	condition_start_date date,
@@ -51,7 +51,7 @@ CREATE TABLE Condition_Occurrence (
 );
 
 CREATE TABLE Death (
-	person_id double precision  PRIMARY KEY,
+	person_id double precision PRIMARY KEY,
  	death_date date,
  	death_datetime timestamp (6),
  	death_type_concept_id float (8),
@@ -61,7 +61,7 @@ CREATE TABLE Death (
 );
 
 CREATE TABLE Device_Exposure (
-	device_exposure_id double precision  PRIMARY KEY,
+	device_exposure_id double precision PRIMARY KEY,
  	person_id double precision,
  	device_concept_id double precision,
  	device_exposure_start_date date,
@@ -81,7 +81,7 @@ CREATE TABLE Device_Exposure (
 );
 
 CREATE TABLE Drug_Era (
-	drug_era_id double precision  PRIMARY KEY,
+	drug_era_id double precision PRIMARY KEY,
  	person_id double precision,
  	drug_concept_id varchar (255),
  	drug_era_start_date date,
@@ -92,7 +92,7 @@ CREATE TABLE Drug_Era (
 );
 
 CREATE TABLE Drug_Exposure (
-	drug_exposure_id double precision  PRIMARY KEY,
+	drug_exposure_id double precision PRIMARY KEY,
  	person_id double precision,
  	drug_concept_id varchar (255),
  	drug_exposure_start_date date,
@@ -120,7 +120,7 @@ CREATE TABLE Drug_Exposure (
 );
 
 CREATE TABLE Measurement (
-	measurement_id double precision  PRIMARY KEY,
+	measurement_id double precision PRIMARY KEY,
  	person_id double precision,
  	measurement_concept_id varchar (255),
 	measurement_date varchar (20),
@@ -145,7 +145,7 @@ CREATE TABLE Measurement (
 );
 
 CREATE TABLE Observation_Period (
-	obseration_period_id double precision  PRIMARY KEY,
+	obseration_period_id double precision PRIMARY KEY,
  	person_id double precision,
  	observation_period_start_date date,
  	observation_period_end_date date,
@@ -197,7 +197,7 @@ CREATE TABLE Procedure_Occurrence (
 );
 
 CREATE TABLE Visit_Occurrence (
-	visit_occurrence_id double precision  PRIMARY KEY,
+	visit_occurrence_id double precision PRIMARY KEY,
  	person_id double precision,
  	visit_concept_id double precision,
  	visit_start_date date,

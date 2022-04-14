@@ -19,6 +19,30 @@ CREATE TABLE Care_Site (
 	FOREIGN KEY (location_id) REFERENCES Location (location_id)
 );
 
+CREATE TABLE Person (
+	person_id double precision PRIMARY KEY,
+ 	gender_concept_id double precision,
+ 	year_of_birth double precision,
+ 	month_of_birth double precision,
+ 	day_of_birth double precision,
+ 	/* birth_datetime timestamp (6), */
+ 	race_concept_id double precision,
+ 	ethnicity_concept_id double precision,
+ 	location_id double precision,
+ 	provider_id double precision,
+ 	care_site_id double precision,
+ 	/* person_source_value double precision, */
+ 	gender_source_value varchar (255),
+ 	gender_source_concept_id double precision,
+ 	race_source_value double precision,
+ 	race_source_concept_id double precision,
+ 	/* ethnicity_source_value double precision, */
+ 	ethnicity_source_concept_id double precision,
+	FOREIGN KEY (person_id) REFERENCES Person (person_id),
+	FOREIGN KEY (location_id) REFERENCES Location (location_id),
+	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
+);
+
 CREATE TABLE Condition_Era (
 	condition_era_id double precision PRIMARY KEY,
  	person_id double precision,
@@ -27,6 +51,27 @@ CREATE TABLE Condition_Era (
  	condition_era_end_date date,
  	condition_occurrence_count float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
+);
+
+CREATE TABLE Visit_Occurrence (
+	visit_occurrence_id double precision PRIMARY KEY,
+ 	person_id double precision,
+ 	visit_concept_id double precision,
+ 	visit_start_date date,
+ 	visit_start_datetime timestamp (6),
+ 	visit_end_date date,
+ 	visit_end_datetime timestamp (6),
+ 	visit_type_concept_id float (8),
+ 	provider_id float (8),
+ 	care_site_id float (8),
+ 	visit_source_value varchar (255),
+ 	visit_source_concept_id float (8),
+ 	admitting_source_concept_id float (8),
+ 	admitting_source_value float (8),
+ 	discharge_to_concept_id float (8),
+ 	discharge_to_source_value float (8),
+	FOREIGN KEY (person_id) REFERENCES Person (person_id),
+	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
 );
 
 CREATE TABLE Condition_Occurrence (
@@ -153,30 +198,6 @@ CREATE TABLE Observation_Period (
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
 );
 
-CREATE TABLE Person (
-	person_id double precision PRIMARY KEY,
- 	gender_concept_id double precision,
- 	year_of_birth double precision,
- 	month_of_birth double precision,
- 	day_of_birth double precision,
- 	/* birth_datetime timestamp (6), */
- 	race_concept_id double precision,
- 	ethnicity_concept_id double precision,
- 	location_id double precision,
- 	provider_id double precision,
- 	care_site_id double precision,
- 	/* person_source_value double precision, */
- 	gender_source_value varchar (255),
- 	gender_source_concept_id double precision,
- 	race_source_value double precision,
- 	race_source_concept_id double precision,
- 	/* ethnicity_source_value double precision, */
- 	ethnicity_source_concept_id double precision,
-	FOREIGN KEY (person_id) REFERENCES Person (person_id),
-	FOREIGN KEY (location_id) REFERENCES Location (location_id),
-	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
-);
-
 CREATE TABLE Procedure_Occurrence (
 	procedure_occurrence_id double precision PRIMARY KEY,
  	person_id double precision,
@@ -194,26 +215,5 @@ CREATE TABLE Procedure_Occurrence (
  	modifier_source_value float (8),
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
-);
-
-CREATE TABLE Visit_Occurrence (
-	visit_occurrence_id double precision PRIMARY KEY,
- 	person_id double precision,
- 	visit_concept_id double precision,
- 	visit_start_date date,
- 	visit_start_datetime timestamp (6),
- 	visit_end_date date,
- 	visit_end_datetime timestamp (6),
- 	visit_type_concept_id float (8),
- 	provider_id float (8),
- 	care_site_id float (8),
- 	visit_source_value varchar (255),
- 	visit_source_concept_id float (8),
- 	admitting_source_concept_id float (8),
- 	admitting_source_value float (8),
- 	discharge_to_concept_id float (8),
- 	discharge_to_source_value float (8),
-	FOREIGN KEY (person_id) REFERENCES Person (person_id),
-	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
 );
 

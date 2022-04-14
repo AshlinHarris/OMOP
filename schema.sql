@@ -159,7 +159,7 @@ CREATE TABLE Person (
  	year_of_birth double precision,
  	month_of_birth double precision,
  	day_of_birth double precision,
- 	birth_datetime timestamp (6),
+ 	/* birth_datetime timestamp (6), */
  	race_concept_id double precision,
  	ethnicity_concept_id double precision,
  	location_id double precision,

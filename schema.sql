@@ -165,7 +165,7 @@ CREATE TABLE Person (
  	location_id double precision,
  	provider_id double precision,
  	care_site_id double precision,
- 	person_source_value double precision,
+ 	/* person_source_value double precision, */
  	gender_source_value varchar (255),
  	gender_source_concept_id double precision,
  	race_source_value double precision,

@@ -87,7 +87,7 @@ CREATE TABLE Condition_Occurrence (
  	condition_status_concept_id float (8),
  	stop_reason float (8),
  	/* provider_id float (8), */
- 	visit_occurrence_id float (8),
+ 	visit_occurrence_id double precision,
  	visit_detail_id float (8),
  	condition_source_value varchar (255),
 	condition_source_concept_id float (8),
@@ -118,7 +118,7 @@ CREATE TABLE Device_Exposure (
  	unique_device_id float (8),
  	quantity float (8),
  	provider_id float (8),
- 	visit_occurrence_id float (8),
+ 	visit_occurrence_id double precision,
  	visit_detail_id float (8),
  	device_source_value varchar (255),
  	device_source_concept_id float (8),

@@ -162,7 +162,7 @@ CREATE TABLE Drug_Exposure (
  	route_source_value int,
  	dose_unit_source_value int,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
-	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
+	/* FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id) */
 );
 
 CREATE TABLE Measurement (

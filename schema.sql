@@ -92,8 +92,8 @@ CREATE TABLE Condition_Occurrence (
  	condition_source_value varchar (255),
 	condition_source_concept_id bigint,
  	condition_status_source_value int,
-	FOREIGN KEY (person_id) REFERENCES Person (person_id),
-	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
+	FOREIGN KEY (person_id) REFERENCES Person (person_id)
+	/* FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id) */
 );
 
 CREATE TABLE Death (

@@ -1,13 +1,13 @@
 
 CREATE TABLE Location (
 	location_id bigint PRIMARY KEY,
-	address_1 double precision,
- 	address_2 double precision,
- 	city double precision,
- 	state double precision,
+	address_1 int,
+ 	address_2 int,
+ 	city int,
+ 	state int,
  	zip varchar (255),
- 	county double precision,
- 	location_source_value double precision 
+ 	county int,
+ 	location_source_value int 
 );
 
 CREATE TABLE Care_Site (

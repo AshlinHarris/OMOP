@@ -161,7 +161,7 @@ CREATE TABLE Drug_Exposure (
  	drug_source_concept_id varchar (255),
  	route_source_value int,
  	dose_unit_source_value int,
-	FOREIGN KEY (person_id) REFERENCES Person (person_id),
+	FOREIGN KEY (person_id) REFERENCES Person (person_id)
 	/* FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id) */
 );
 
@@ -186,8 +186,8 @@ CREATE TABLE Measurement (
  	measurement_source_concept_id varchar (255),
  	unit_source_value varchar (255),
  	value_source_value varchar (255),
-	FOREIGN KEY (person_id) REFERENCES Person (person_id),
-	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
+	FOREIGN KEY (person_id) REFERENCES Person (person_id)
+	/* FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id) */
 );
 
 CREATE TABLE Observation_Period (
@@ -214,7 +214,7 @@ CREATE TABLE Procedure_Occurrence (
  	procedure_source_value varchar (255),
  	procedure_source_concept_id varchar (255),
  	modifier_source_value int,
-	FOREIGN KEY (person_id) REFERENCES Person (person_id),
-	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
+	FOREIGN KEY (person_id) REFERENCES Person (person_id)
+	/* FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id) */
 );
 

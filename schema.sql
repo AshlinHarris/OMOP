@@ -49,7 +49,7 @@ CREATE TABLE Condition_Era (
  	condition_concept_id bigint,
  	condition_era_start_date date,
  	condition_era_end_date date,
- 	condition_occurrence_count float (8),
+ 	condition_occurrence_count int,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
 );
 
@@ -67,9 +67,9 @@ CREATE TABLE Visit_Occurrence (
  	visit_source_value varchar (255),
  	visit_source_concept_id bigint,
  	admitting_source_concept_id bigint,
- 	admitting_source_value float (8),
+ 	admitting_source_value int,
  	discharge_to_concept_id bigint,
- 	discharge_to_source_value float (8),
+ 	discharge_to_source_value int,
  	preceding_visit_occurrence_id bigint,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
@@ -85,13 +85,13 @@ CREATE TABLE Condition_Occurrence (
  	condition_end_datetime timestamp (6),
  	condition_type_concept_id bigint,
  	condition_status_concept_id bigint,
- 	stop_reason float (8),
+ 	stop_reason int,
  	/* provider_id bigint, */
  	visit_occurrence_id bigint,
  	visit_detail_id bigint,
  	condition_source_value varchar (255),
 	condition_source_concept_id bigint,
- 	condition_status_source_value float (8),
+ 	condition_status_source_value int,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
 );
@@ -102,7 +102,7 @@ CREATE TABLE Death (
  	death_datetime timestamp (6),
  	death_type_concept_id bigint,
  	cause_concept_id bigint,
- 	cause_source_value float (8),
+ 	cause_source_value int,
  	cause_source_concept_id bigint
 );
 
@@ -116,7 +116,7 @@ CREATE TABLE Device_Exposure (
  	device_exposure_end_datetime timestamp (6),
  	device_type_concept_id bigint,
  	unique_device_id bigint,
- 	quantity float (8),
+ 	quantity int,
  	provider_id bigint,
  	visit_occurrence_id bigint,
  	visit_detail_id bigint,
@@ -132,8 +132,8 @@ CREATE TABLE Drug_Era (
  	drug_concept_id varchar (255),
  	drug_era_start_date date,
  	drug_era_end_date date,
- 	drug_exposure_count float (8),
- 	gap_days float (8),
+ 	drug_exposure_count int,
+ 	gap_days int,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
 );
 
@@ -147,20 +147,20 @@ CREATE TABLE Drug_Exposure (
  	drug_exposure_end_datetime timestamp (6),
  	verbatim_end_date date,
  	drug_type_concept_id bigint,
- 	stop_reason float (8),
- 	refills float (8),
- 	quantity float (8),
- 	days_supply float (8),
- 	sig float (8),
+ 	stop_reason int,
+ 	refills int,
+ 	quantity int,
+ 	days_supply int,
+ 	sig int,
  	route_concept_id bigint,
- 	lot_number float (8),
+ 	lot_number int,
  	provider_id bigint,
  	visit_occurrence_id bigint,
  	visit_detail_id bigint,
  	drug_source_value varchar (255),
  	drug_source_concept_id varchar (255),
- 	route_source_value float (8),
- 	dose_unit_source_value float (8),
+ 	route_source_value int,
+ 	dose_unit_source_value int,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
 );
@@ -207,13 +207,13 @@ CREATE TABLE Procedure_Occurrence (
  	procedure_datetime timestamp (6),
  	procedure_type_concept_id bigint,
  	modifier_concept_id bigint,
- 	quantity float (8),
+ 	quantity int,
  	provider_id bigint,
  	visit_occurrence_id bigint,
  	visit_detail_id bigint,
  	procedure_source_value varchar (255),
  	procedure_source_concept_id varchar (255),
- 	modifier_source_value float (8),
+ 	modifier_source_value int,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
 );

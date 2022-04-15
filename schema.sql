@@ -22,21 +22,21 @@ CREATE TABLE Care_Site (
 CREATE TABLE Person (
 	person_id bigint PRIMARY KEY,
  	gender_concept_id bigint,
- 	year_of_birth double precision,
- 	month_of_birth double precision,
- 	day_of_birth double precision,
+ 	year_of_birth int,
+ 	month_of_birth int,
+ 	day_of_birth int,
  	/* birth_datetime timestamp (6), */
  	race_concept_id bigint,
  	ethnicity_concept_id bigint,
  	location_id bigint,
  	provider_id bigint,
  	care_site_id bigint,
- 	/* person_source_value double precision, */
+ 	/* person_source_value int, */
  	gender_source_value varchar (255),
  	gender_source_concept_id bigint,
- 	race_source_value double precision,
+ 	race_source_value int,
  	race_source_concept_id bigint,
- 	/* ethnicity_source_value double precision, */
+ 	/* ethnicity_source_value int, */
  	ethnicity_source_concept_id bigint,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (location_id) REFERENCES Location (location_id),

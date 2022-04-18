@@ -1,5 +1,5 @@
 
-CREATE TABLE Location (
+CREATE TABLE location (
 	location_id bigint PRIMARY KEY,
 	address_1 int,
  	address_2 int,
@@ -10,7 +10,7 @@ CREATE TABLE Location (
  	location_source_value int 
 );
 
-CREATE TABLE Care_Site (
+CREATE TABLE care_site (
 	care_site_id bigint PRIMARY KEY,
  	care_site_name varchar (255),
  	place_of_service_concept_id bigint,
@@ -19,7 +19,7 @@ CREATE TABLE Care_Site (
 	FOREIGN KEY (location_id) REFERENCES Location (location_id)
 );
 
-CREATE TABLE Person (
+CREATE TABLE person (
 	person_id bigint PRIMARY KEY,
  	gender_concept_id bigint,
  	year_of_birth int,
@@ -43,7 +43,7 @@ CREATE TABLE Person (
 	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
 );
 
-CREATE TABLE Condition_Era (
+CREATE TABLE condition_era (
 	condition_era_id bigint PRIMARY KEY,
  	person_id bigint,
  	condition_concept_id bigint,
@@ -53,7 +53,7 @@ CREATE TABLE Condition_Era (
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
 );
 
-CREATE TABLE Visit_Occurrence (
+CREATE TABLE visit_occurrence (
 	visit_occurrence_id bigint PRIMARY KEY,
  	person_id bigint,
  	visit_concept_id bigint,
@@ -75,7 +75,7 @@ CREATE TABLE Visit_Occurrence (
 	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
 );
 
-CREATE TABLE Condition_Occurrence (
+CREATE TABLE condition_occurrence (
 	condition_occurrence_id bigint PRIMARY KEY,
  	person_id bigint,
  	condition_concept_id bigint,
@@ -96,7 +96,7 @@ CREATE TABLE Condition_Occurrence (
 	/* FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id) */
 );
 
-CREATE TABLE Death (
+CREATE TABLE death (
 	person_id bigint PRIMARY KEY,
  	death_date date,
  	death_datetime timestamp (6),
@@ -106,7 +106,7 @@ CREATE TABLE Death (
  	cause_source_concept_id bigint
 );
 
-CREATE TABLE Device_Exposure (
+CREATE TABLE device_exposure (
 	device_exposure_id bigint PRIMARY KEY,
  	person_id bigint,
  	device_concept_id bigint,
@@ -126,7 +126,7 @@ CREATE TABLE Device_Exposure (
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
 );
 
-CREATE TABLE Drug_Era (
+CREATE TABLE drug_era (
 	drug_era_id bigint PRIMARY KEY,
  	person_id bigint,
  	drug_concept_id varchar (255),
@@ -137,7 +137,7 @@ CREATE TABLE Drug_Era (
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
 );
 
-CREATE TABLE Drug_Exposure (
+CREATE TABLE drug_exposure (
 	drug_exposure_id bigint PRIMARY KEY,
  	person_id bigint,
  	drug_concept_id varchar (255),
@@ -165,7 +165,7 @@ CREATE TABLE Drug_Exposure (
 	/* FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id) */
 );
 
-CREATE TABLE Measurement (
+CREATE TABLE measurement (
 	measurement_id bigint PRIMARY KEY,
  	person_id bigint,
  	measurement_concept_id varchar (255),
@@ -190,7 +190,7 @@ CREATE TABLE Measurement (
 	/* FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id) */
 );
 
-CREATE TABLE Observation_Period (
+CREATE TABLE observation_period (
 	obseration_period_id bigint PRIMARY KEY,
  	person_id bigint,
  	observation_period_start_date date,
@@ -199,7 +199,7 @@ CREATE TABLE Observation_Period (
 	FOREIGN KEY (person_id) REFERENCES Person (person_id)
 );
 
-CREATE TABLE Procedure_Occurrence (
+CREATE TABLE procedure_occurrence (
 	procedure_occurrence_id bigint PRIMARY KEY,
  	person_id bigint,
  	procedure_concept_id varchar (255),

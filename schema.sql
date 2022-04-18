@@ -106,6 +106,7 @@ CREATE TABLE death (
  	cause_source_concept_id bigint
 );
 
+/*
 CREATE TABLE device_exposure (
 	device_exposure_id bigint PRIMARY KEY,
  	person_id bigint,
@@ -125,6 +126,7 @@ CREATE TABLE device_exposure (
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (visit_occurrence_id) REFERENCES Visit_Occurrence (visit_occurrence_id)
 );
+*/
 
 CREATE TABLE drug_era (
 	drug_era_id bigint PRIMARY KEY,

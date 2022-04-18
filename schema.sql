@@ -10,6 +10,7 @@ CREATE TABLE location (
  	location_source_value int 
 );
 
+/*
 CREATE TABLE care_site (
 	care_site_id bigint PRIMARY KEY,
  	care_site_name varchar (255),
@@ -18,6 +19,7 @@ CREATE TABLE care_site (
  	care_site_source_value varchar (255),
 	FOREIGN KEY (location_id) REFERENCES Location (location_id)
 );
+*/
 
 CREATE TABLE person (
 	person_id bigint PRIMARY KEY,
@@ -40,7 +42,7 @@ CREATE TABLE person (
  	ethnicity_source_concept_id bigint,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
 	FOREIGN KEY (location_id) REFERENCES Location (location_id),
-	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
+	/* FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id) */
 );
 
 CREATE TABLE condition_era (
@@ -72,7 +74,7 @@ CREATE TABLE visit_occurrence (
  	discharge_to_source_value int,
  	preceding_visit_occurrence_id bigint,
 	FOREIGN KEY (person_id) REFERENCES Person (person_id),
-	FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id)
+	/* FOREIGN KEY (care_site_id) REFERENCES Care_Site (care_site_id) */
 );
 
 CREATE TABLE condition_occurrence (
